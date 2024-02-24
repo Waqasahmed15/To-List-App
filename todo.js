@@ -1,25 +1,32 @@
-// function addTodo() {
-//   var userText = document.querySelector("#useText").value;
-//   var list = document.querySelector(".list");
-//   var li = document.createElement("li");
-//   var check = list.appendChild(li);
-//   var liText = check.append(userText);
-//   var editbtn = document.createElement("button");
-//   var editbtnText = document.createTextNode("Edit");
-//   var deletebtn = document.createElement("button");
-//   var deletebtnText = document.createTextNode("Delete");
-//   list.appendChild(editbtn);
-//   list.appendChild(deletebtn);
+function addTodo() {
+  var userText = document.querySelector("#useText");
+  var list = document.querySelector(".list");
+  var li = document.createElement("li");
+  var check = list.appendChild(li);
+  var liText = check.append(userText.value);
+  var editbtn = document.createElement("button");
+  var editbtnText = document.createTextNode("Edit");
+  var deletebtn = document.createElement("button");
+  var deletebtnText = document.createTextNode("Delete");
+  li.appendChild(editbtn);
+  li.appendChild(deletebtn);
 
-//   editbtn.appendChild(editbtnText);
+  editbtn.appendChild(editbtnText);
 
-//   deletebtn.appendChild(deletebtnText);
+  deletebtn.appendChild(deletebtnText);
+  deletebtn.setAttribute("onclick", "deletbtn()");
+  editbtn.setAttribute("onclick", "editbtn()");
+  userText.value = "";
+}
+function deletbtn() {
+  event.target.parentNode.remove();
+}
+function editbtn() {
+  var oldText = event.target.parentNode.firstChild.nodeValue;
 
-//   deletebtn.addEventListener("click", () => {
-//     list.innerHTML = "";
-//   });
-// }
-
+  var editText = prompt("Enter Your Update Value", oldText);
+  event.target.parentNode.firstChild.nodeValue = editText;
+}
 // get and set attributte//
 // var div = document.querySelector("div");
 // div.classList.add("xyz");
@@ -39,5 +46,4 @@ function adddabba() {
   dabba.style.border = "2px solid red";
   dabba.style.width = "100px";
   dabba.style.height = "100px";
-  // dabba.style.height = "50px";
 }
